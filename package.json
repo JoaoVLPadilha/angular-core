@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "ts-node -P ./server.tsconfig.json ./server.ts"
+    "server": "ts-node -P ./server.tsconfig.json ./server.ts",
+    "commit": "git-cz",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +27,7 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "body-parser": "^1.18.3",
+    "commitizen": "^4.3.0",
     "core-js": "^2.5.4",
     "cors": "^2.8.5",
     "document-register-element": "1.8.1",
@@ -39,7 +42,10 @@
     "@angular/language-service": "^18.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.55",
+    "cz-conventional-changelog": "^3.3.0",
+    "devmoji": "^2.3.0",
+    "husky": "^9.0.11",
     "jasmine-core": "~3.8.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.3.2",

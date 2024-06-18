@@ -9,10 +9,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "target": "ES2022",
+    "target": "esnext",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": ["node"],
     "lib": [
       "es2017",
       "dom"

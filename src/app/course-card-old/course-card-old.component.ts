@@ -1,16 +1,16 @@
 import { Component, Input, Output } from '@angular/core';
 import { Course } from '../model/course';
 import { EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'course-card',
+  selector: 'course-card-old',
   standalone: true,
-  imports: [],
-  templateUrl: './course-card.component.html',
-  styleUrl: './course-card.component.css',
-
+  imports: [CommonModule],
+  templateUrl: './course-card-old.component.html',
+  styleUrl: './course-card-old.component.css'
 })
-export class CourseCardComponent {
+export class CourseCardOldComponent {
   @Input()
   course: Course
 
@@ -23,6 +23,10 @@ export class CourseCardComponent {
   constructor(){}
   ngOnInit(){
 
+  }
+
+  isImageVisible(){
+    return this.course && this.course.iconUrl
   }
 
   onCourseViewed(){

@@ -1,0 +1,14 @@
+@for (course of courses; track course.id; let index = $index; let count =
+$count; let first = $first;let last = $last; ) {
+
+<course-card
+  [index]="index + 1"
+  (courseSelected)="onCourseSelected($event)"
+  [class.is-first]="first"
+  [class.is-last]="last"
+  [course]="course"
+/>
+
+} @empty {
+<h1>No courses atm</h1>
+}
