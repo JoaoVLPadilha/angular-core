@@ -1,6 +1,6 @@
 <div class="course-card" *ngIf="course" [ngClass]="{beginner: isBeginner()}" [ngStyle]="cardStyle()">
     <div class="course-title">
-      {{ index }}
+      {{ index ||'' }}
       {{ course.description }}
     </div>
     <!-- <img width="300" alt="Angular Logo" [src]="course.iconUrl" *ngIf="isImageVisible(); else noImage" /> -->
@@ -9,7 +9,7 @@
       <h1>No Image</h1>
     </ng-template>
     
-    <div class="course-description">
+    <div class="course-description" #templatetest>
       {{ course.longDescription }}
     </div>
 
