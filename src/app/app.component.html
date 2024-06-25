@@ -7,12 +7,18 @@
 </div>
 
 <div class="courses" #container>
-  <button (click)="editCourse()">Courses</button>
+  <!-- <button (click)="editCourse()">Courses</button> -->
   <!-- <new-syntax/> -->
 
-  
+  <ng-template #blankImage let-courseName="description" >
+    <p class="warn">No Image for {{courseName}}</p>
+    <img src="../../assets/empty-image.png" alt="" title="there is a title">
+   </ng-template>
 
-  <div class="oldSyntax">
+   <div *ngTemplateOutlet="blankImage; context:{description: courses[0].description}"></div>
+   
+   
+   <div class="oldSyntax">
     <div>
       <course-card-old
       *ngFor="let course of courses"
