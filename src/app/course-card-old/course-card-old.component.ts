@@ -1,7 +1,8 @@
-import { Component, Input, Output } from "@angular/core";
+import { AfterContentInit, AfterViewInit, Component, ContentChild, ContentChildren, Input, Output, QueryList } from "@angular/core";
 import { Course } from "../model/course";
 import { EventEmitter } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { CourseImageComponent } from "../course-image/course-image.component";
 
 @Component({
   selector: "course-card-old",
@@ -10,7 +11,7 @@ import { CommonModule } from "@angular/common";
   templateUrl: "./course-card-old.component.html",
   styleUrl: "./course-card-old.component.css",
 })
-export class CourseCardOldComponent {
+export class CourseCardOldComponent implements AfterViewInit, AfterContentInit{
   @Input()
   course: Course;
 
@@ -19,6 +20,11 @@ export class CourseCardOldComponent {
 
   @Output()
   courseSelected = new EventEmitter<Course>();
+
+  @ContentChild(CourseImageComponent)
+  image;
+  @ContentChildren(CourseImageComponent)
+  images: QueryList<CourseImageComponent>;
 
   constructor() {}
   ngOnInit() {}
@@ -36,10 +42,17 @@ export class CourseCardOldComponent {
     console.log("oi - button");
   }
 
+  ngAfterViewInit(): void {
+  }
+
+  ngAfterContentInit(): void {
+    console.log(this.images)
+  }
+
   cardStyle() {
     return {
-      "background-image": "url(" + this.course.iconUrl + ")",
-      "background-size": "cover"
+      // "background-image": "url(" + this.course.iconUrl + ")",
+      // "background-size": "cover"
     };
   }
 }

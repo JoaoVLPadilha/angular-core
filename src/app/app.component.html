@@ -1,5 +1,6 @@
 <div class="top-menu">
   <img
+  title="#noImage"
     class="logo"
     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
   />
@@ -8,7 +9,7 @@
 <div class="courses" #container>
   <button (click)="editCourse()">Courses</button>
   <!-- <new-syntax/> -->
-  
+
   <div class="oldSyntax">
     <div>
       <course-card-old
@@ -16,8 +17,16 @@
       [course]="course"
       index=""
       (courseSelected)="onCourseSelected($event)"
-      />
+      >
+      <course-image [course]="course"/>
+      <div class="course-description">
+        {{ course.longDescription }}
+      </div>
+    </course-card-old>
+
+    <ng-template #noImage></ng-template>
+
     </div>
   </div>
-    
+
 </div>
