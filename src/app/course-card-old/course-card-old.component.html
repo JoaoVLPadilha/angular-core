@@ -10,8 +10,12 @@
   </div>
 
   <!-- <ng-content></ng-content> -->
+   <ng-template #noImage>
+    <p class="warn">No Image</p>
+    <img src="../../assets/empty-image.png" alt="" title="there is a title">
+   </ng-template>
 
-  <ng-content select="course-image"></ng-content>
+  <ng-content select="course-image" *ngIf="course.iconUrl; else noImage"></ng-content>
   <ng-content select=".course-description"> </ng-content>
 
   <div class="course-category" [ngSwitch]="course.category">
