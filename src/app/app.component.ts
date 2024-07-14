@@ -2,31 +2,44 @@ import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
 import {CourseCardComponent} from './course-card/course-card.component';
-import { HighlightedDirective } from './directives/highlighted.directive';
+import {HighlightedDirective} from './directives/highlighted.directive';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  courses = COURSES;
 
-  @ViewChildren(CourseCardComponent, { read: ElementRef })
-  cards: QueryList<ElementRef>;
+    courses = COURSES;
 
-  @ViewChild(HighlightedDirective)
-  high: HighlightedDirective;
+    @ViewChild(CourseCardComponent, { read: HighlightedDirective })
+    highlighted: HighlightedDirective;
 
-  constructor() {}
+    @ViewChildren(CourseCardComponent, {read: ElementRef})
+    cards : QueryList<ElementRef>;
 
-  handleEmmit(high: boolean) {
-    console.log(high);
-  }
 
-  ngAfterViewInit() {
-    console.log("this.high", this.high);
-  }
+    constructor() {
 
-  onCourseSelected(course: Course) {}
+    }
+
+    onToggle(isHighlighted:boolean) {
+
+        console.log(isHighlighted);
+
+    }
+
+
+    ngAfterViewInit() {
+
+        console.log(this.highlighted);
+
+
+    }
+
+    onCourseSelected(course:Course) {
+
+    }
+
 }
